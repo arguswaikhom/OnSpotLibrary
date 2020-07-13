@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">OnSpotLibrary</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="key_api">AIzaSyAvAjaMYJZ69Ky-gP8bsA5Eh8wj4d-iAEM</string>
+
+    <string name="domain">https://us-central1-crown-onspot.cloudfunctions.net</string>
+    <string name="msg_phone_verification">You will get SMS with a confirmation code to this number.</string>
+
+    <string name="ref_business">business</string>
+    <string name="ref_notification">notification</string>
+    <string name="ref_user">user</string>
+    <string name="ref_order">order</string>
+    <string name="sub_ref_item">item</string>
+    <string name="sub_ref_contact">contact</string>
+    <string name="sub_ref_destination">address</string>
+
+    <string name="field_image_urls">imageUrls</string>
+    <string name="field_account">account</string>
+    <string name="field_type">type</string>
+    <string name="field_device_token">deviceToken</string>
+    <string name="field_device_token_osd">deviceTokenOSD</string>
+
+    <string name="title_activity_contact">ContactActivity</string>
+
+    <string name="instagram">\@onspotapp</string>
+    <string name="gmail">onspotbusiness@gmail.com</string>
+
+    <string name="action_os_changes">com.crown.onspot.USER_UPDATES</string>
+    <string name="action_osb_changes">com.crown.onspotbusiness.USER_UPDATES</string>
+    <string name="action_osd_changes">com.crown.onspotdelivery.USER_UPDATES</string>
+
+    <string name="nav_activity">Activity</string>
+</resources>
