@@ -7,8 +7,16 @@ public class OrderStatusRecord {
     private OrderStatus status;
     private Timestamp timestamp;
 
+    public OrderStatusRecord() {
+    }
+
     public OrderStatus getStatus() {
         return status;
+    }
+
+    public OrderStatusRecord(OrderStatus status, Timestamp timestamp) {
+        this.status = status;
+        this.timestamp = timestamp;
     }
 
     public void setStatus(OrderStatus status) {

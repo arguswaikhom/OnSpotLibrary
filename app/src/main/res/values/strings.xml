@@ -1,16 +1,10 @@
 <resources>
     <string name="app_name">OnSpotLibrary</string>
-    <string name="action_ok">OK</string>
-    <string name="action_cancel">Cancel</string>
     <string name="key_api">AIzaSyAvAjaMYJZ69Ky-gP8bsA5Eh8wj4d-iAEM</string>
-
-    <string name="domain">https://us-central1-crown-onspot.cloudfunctions.net</string>
-    <string name="msg_phone_verification">You will get SMS with a confirmation code to this number.</string>
 
     <string name="ref_business">business</string>
     <string name="ref_notification">notification</string>
     <string name="ref_user">user</string>
-    <string name="ref_order">order</string>
     <string name="sub_ref_item">item</string>
     <string name="sub_ref_contact">contact</string>
     <string name="sub_ref_destination">address</string>
@@ -21,14 +15,56 @@
     <string name="field_device_token">deviceToken</string>
     <string name="field_device_token_osd">deviceTokenOSD</string>
 
+    <!--Storage-->
+    <string name="sref_user_profile">user-profile</string>
+    <string name="sref_item_image">item-image</string>
+
+    <!--Crown OnSpot-->
+    <string name="ref_report">report</string>
+    <string name="ref_crown_onspot">crown-onspot</string>
+    <string name="doc_launch_region">launchRegion</string>
+    <string name="field_postal_code">postalCode</string>
+    <string name="field_location">location</string>
+
+    <!--Order-->
+    <string name="ref_order">order</string>
+    <string name="field_ordered_at">orderedAt</string>
+    <string name="field_customer">customer</string>
+    <string name="field_status">status</string>
+
+    <!--User-->
+    <string name="field_user_id">userId</string>
+
+    <!--Business-->
+    <string name="field_business">business</string>
+    <string name="field_business_ref_id">businessRefId</string>
+    <string name="field_mobile_number">mobileNumber</string>
+    <string name="field_delivery">delivery</string>
+
+    <!--OS-->
+    <string name="field_phone_number">phoneNumber</string>
+
+    <!--Business item-->
+    <string name="field_archived">archived</string>
+
     <string name="title_activity_contact">ContactActivity</string>
 
     <string name="instagram">\@onspotapp</string>
     <string name="gmail">onspotbusiness@gmail.com</string>
+    <string name="map_package">com.google.android.apps.maps</string>
 
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_accept">Accept</string>
     <string name="action_os_changes">com.crown.onspot.USER_UPDATES</string>
     <string name="action_osb_changes">com.crown.onspotbusiness.USER_UPDATES</string>
     <string name="action_osd_changes">com.crown.onspotdelivery.USER_UPDATES</string>
 
     <string name="nav_activity">Activity</string>
+
+    <string name="digits_number_positive">0123456789</string>
+    <string name="inr">₹</string>
+    <string name="domain">https://us-central1-crown-onspot.cloudfunctions.net</string>
+    <string name="msg_phone_verification">You will get SMS with a confirmation code to this number.</string>
+    <string name="msg_unsupported_content_by_app">Content is not supported by this app version. Update the app to it\'s latest version and try again. If that doesn\'t work, please report us.</string>
 </resources>

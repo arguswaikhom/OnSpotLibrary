@@ -1,7 +1,7 @@
 package com.crown.library.onspotlibrary.model.cart;
 
-import com.crown.library.onspotlibrary.utils.ListItemType;
 import com.crown.library.onspotlibrary.model.businessItem.BusinessItemV1;
+import com.crown.library.onspotlibrary.utils.ListItemType;
 
 public class OSCartLite extends BusinessItemV1 {
     private Long quantity = 0L;

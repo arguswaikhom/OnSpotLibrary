@@ -53,12 +53,6 @@ public class OSLocation {
         this.postalCode = postalCode;
     }
 
-
-    public boolean isEmpty() {
-        return getGeoPoint() == null || getAddressLine() == null || getHowToReach() == null || getAddressLine().trim().equals("") || getHowToReach().trim().equals("");
-    }
-
-
     @NonNull
     @Override
     public String toString() {

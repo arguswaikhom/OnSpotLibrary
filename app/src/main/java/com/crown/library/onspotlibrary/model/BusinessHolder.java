@@ -11,12 +11,25 @@ public class BusinessHolder {
     public BusinessHolder() {
     }
 
+    public BusinessHolder(String role, String userId) {
+        this.role = role;
+        this.userId = userId;
+    }
+
     public String getRole() {
         return role;
     }
 
     public String getUserId() {
         return userId;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @NotNull

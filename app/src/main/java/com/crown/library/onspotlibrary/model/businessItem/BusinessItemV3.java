@@ -1,11 +1,10 @@
 package com.crown.library.onspotlibrary.model.businessItem;
 
-import com.crown.library.onspotlibrary.utils.emun.BusinessItemStatus;
 import com.crown.library.onspotlibrary.utils.ListItemType;
+import com.crown.library.onspotlibrary.utils.emun.BusinessItemStatus;
 
 public class BusinessItemV3 extends BusinessItemV2 {
     private Long onStock;
-    private Boolean isDeleted;
     private BusinessItemStatus status;
 
     @Override
@@ -27,13 +26,5 @@ public class BusinessItemV3 extends BusinessItemV2 {
 
     public void setStatus(BusinessItemStatus status) {
         this.status = status;
-    }
-
-    public Boolean getDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
     }
 }

@@ -11,18 +11,18 @@ import androidx.annotation.Nullable;
 
 import com.crown.library.onspotlibrary.R;
 
-public class SearchView extends LinearLayout {
+public class OSSearchView extends LinearLayout {
 
     private EditText inputET;
 
-    public SearchView(Context context, @Nullable AttributeSet attrs) {
+    public OSSearchView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SearchView, 0, 0);
-        String hint = a.getString(R.styleable.SearchView_hint);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.OSSearchView, 0, 0);
+        String hint = a.getString(R.styleable.OSSearchView_hint);
         a.recycle();
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

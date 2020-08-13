@@ -1,11 +1,13 @@
 package com.crown.library.onspotlibrary.model.businessItem;
 
+import com.crown.library.onspotlibrary.model.OSRating;
 import com.crown.library.onspotlibrary.utils.ListItemType;
 
 public class BusinessItemV2 extends BusinessItemV1 {
     private String category;
     private String description;
     private String imageUrl;
+    private OSRating rating;
 
     @Override
     public int getItemType() {
@@ -34,5 +36,13 @@ public class BusinessItemV2 extends BusinessItemV1 {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public OSRating getRating() {
+        return rating == null ? new OSRating() : rating;
+    }
+
+    public void setRating(OSRating rating) {
+        this.rating = rating;
     }
 }

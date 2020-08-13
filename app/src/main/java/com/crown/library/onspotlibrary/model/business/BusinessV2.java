@@ -2,8 +2,8 @@ package com.crown.library.onspotlibrary.model.business;
 
 import androidx.annotation.NonNull;
 
-import com.crown.library.onspotlibrary.utils.ListItemType;
 import com.crown.library.onspotlibrary.model.OSLocation;
+import com.crown.library.onspotlibrary.utils.ListItemType;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -12,6 +12,7 @@ public class BusinessV2 extends BusinessV1 {
     String businessType;
     List<String> businessTypes;
     OSLocation location;
+    Boolean hodAvailable;
 
     @Override
     public int getItemType() {
@@ -46,5 +47,13 @@ public class BusinessV2 extends BusinessV1 {
 
     public void setLocation(OSLocation location) {
         this.location = location;
+    }
+
+    public Boolean getHodAvailable() {
+        return hodAvailable;
+    }
+
+    public void setHodAvailable(Boolean hodAvailable) {
+        this.hodAvailable = hodAvailable;
     }
 }

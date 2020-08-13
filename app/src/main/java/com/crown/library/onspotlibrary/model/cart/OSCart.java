@@ -1,21 +1,21 @@
 package com.crown.library.onspotlibrary.model.cart;
 
-import com.crown.library.onspotlibrary.utils.ListItemType;
 import com.crown.library.onspotlibrary.model.businessItem.BusinessItemV4;
+import com.crown.library.onspotlibrary.utils.ListItemType;
 
 public class OSCart extends BusinessItemV4 {
-    private Long quantity = 0L;
+    private long quantity;
 
     @Override
     public int getItemType() {
         return ListItemType.CART;
     }
 
-    public Long getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
 }

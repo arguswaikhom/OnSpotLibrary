@@ -1,14 +1,34 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>-->
+
+    <style name="Material" parent="Theme.MaterialComponents.Light.DarkActionBar">
+
+    </style>
+
+    <style name="Material.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="Material.NoActionBar.GreyStatusBar">
+        <item name="android:statusBarColor">@color/grey_5</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 
     <style name="ThemeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="DialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="DialogActivity" parent="@style/Theme.MaterialComponents.Dialog.Alert" />
+
+    <style name="DialogActivity.NoActionBar" parent="@style/DialogTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="CardViewStyle">
@@ -18,4 +38,16 @@
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">8dp</item>
     </style>
+
+    <style name="VerticalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/colorLine</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="SmallButton" parent="@android:style/Widget.Button.Small" />
+
+    <style name="SmallButton.Outline" parent="Widget.MaterialComponents.Button.OutlinedButton" />
 </resources>

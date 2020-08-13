@@ -1,7 +1,7 @@
 package com.crown.library.onspotlibrary.model.user;
 
-import com.crown.library.onspotlibrary.utils.ListItemType;
 import com.crown.library.onspotlibrary.model.OSLocation;
+import com.crown.library.onspotlibrary.utils.ListItemType;
 
 public class UserV2 extends UserV1 {
     private OSLocation location;
