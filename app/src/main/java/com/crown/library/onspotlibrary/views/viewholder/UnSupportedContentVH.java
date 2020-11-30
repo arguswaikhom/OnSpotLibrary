@@ -17,9 +17,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UnSupportedContentVH extends RecyclerView.ViewHolder {
 
-    private Activity activity;
-    private LoadingBounceDialog loadingDialog;
-    private LiUnsupportedContentBinding binding;
+    private final Activity activity;
+    private final LoadingBounceDialog loadingDialog;
+    private final LiUnsupportedContentBinding binding;
 
     public UnSupportedContentVH(@NonNull View itemView) {
         super(itemView);

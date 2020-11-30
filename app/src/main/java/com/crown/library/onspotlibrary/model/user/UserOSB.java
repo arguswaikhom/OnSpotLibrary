@@ -1,6 +1,6 @@
 package com.crown.library.onspotlibrary.model.user;
 
-public class UserOSB extends UserV3 {
+public class UserOSB extends UserV4 {
     private String businessId;
     private String businessRefId;
     private Boolean hasOnSpotBusinessAccount;

@@ -10,8 +10,8 @@ import com.crown.library.onspotlibrary.R;
 
 public class LoadingBounceDialog {
 
-    private Activity activity;
-    private AlertDialog dialog;
+    private final Activity activity;
+    private final AlertDialog dialog;
 
     public LoadingBounceDialog(Activity activity) {
         this.activity = activity;
@@ -25,5 +25,9 @@ public class LoadingBounceDialog {
 
     public void dismiss() {
         if (dialog.isShowing()) dialog.dismiss();
+    }
+
+    public boolean isShowing() {
+        return dialog.isShowing();
     }
 }

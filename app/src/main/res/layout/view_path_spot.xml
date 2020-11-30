@@ -13,7 +13,7 @@
             android:id="@+id/iv_vps_bg"
             android:layout_width="18dp"
             android:layout_height="18dp"
-            android:tint="@color/colorAccent"
+            app:tint="@color/colorAccent"
             app:srcCompat="@drawable/bg_round_solid" />
 
         <ImageView
@@ -21,6 +21,6 @@
             android:layout_width="12dp"
             android:layout_height="12dp"
             android:layout_centerInParent="true"
-            android:tint="@color/grey_5" />
+            app:tint="@color/grey_5" />
     </RelativeLayout>
 </RelativeLayout>

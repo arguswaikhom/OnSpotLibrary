@@ -5,6 +5,10 @@ import androidx.annotation.NonNull;
 import com.crown.library.onspotlibrary.utils.ListItemType;
 import com.google.gson.Gson;
 
+/**
+ * *This class is use only to differentiate ViewHolders
+ * *for old inactive orders
+ */
 public class OSOldOrder extends OSOrder {
 
     public OSOldOrder() {

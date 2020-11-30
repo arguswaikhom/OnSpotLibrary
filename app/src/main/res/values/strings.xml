@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OnSpotLibrary</string>
-    <string name="key_api">AIzaSyAvAjaMYJZ69Ky-gP8bsA5Eh8wj4d-iAEM</string>
+    <string name="key_api" translatable="false">AIzaSyAvAjaMYJZ69Ky-gP8bsA5Eh8wj4d-iAEM</string>
 
     <string name="ref_business">business</string>
     <string name="ref_notification">notification</string>
@@ -9,7 +10,6 @@
     <string name="sub_ref_contact">contact</string>
     <string name="sub_ref_destination">address</string>
 
-    <string name="field_image_urls">imageUrls</string>
     <string name="field_account">account</string>
     <string name="field_type">type</string>
     <string name="field_device_token">deviceToken</string>
@@ -17,7 +17,16 @@
 
     <!--Storage-->
     <string name="sref_user_profile">user-profile</string>
+    <string name="sref_business_profile">business-profile</string>
     <string name="sref_item_image">item-image</string>
+
+    <!--Field prefixes-->
+    <string name="pre_field_os">os:</string>
+    <string name="pre_field_osb">osb:</string>
+    <string name="pre_field_osd">osd:</string>
+    <string name="pre_field_item">item:</string>
+    <string name="pre_field_order">order:</string>
+    <string name="pre_field_image">image:</string>
 
     <!--Crown OnSpot-->
     <string name="ref_report">report</string>
@@ -28,12 +37,15 @@
 
     <!--Order-->
     <string name="ref_order">order</string>
+    <string name="field_order_id">orderId</string>
     <string name="field_ordered_at">orderedAt</string>
     <string name="field_customer">customer</string>
-    <string name="field_status">status</string>
+    <string name="field_items">items</string>
 
     <!--User-->
     <string name="field_user_id">userId</string>
+    <string name="field_phone_number">phoneNumber</string>
+    <string name="field_delivery_user_id">deliveryUserId</string>
 
     <!--Business-->
     <string name="field_business">business</string>
@@ -41,11 +53,17 @@
     <string name="field_mobile_number">mobileNumber</string>
     <string name="field_delivery">delivery</string>
 
-    <!--OS-->
-    <string name="field_phone_number">phoneNumber</string>
-
     <!--Business item-->
+    <string name="ref_item">item</string>
     <string name="field_archived">archived</string>
+    <string name="field_item_id">itemId</string>
+    <string name="field_item_name">itemName</string>
+    <string name="field_price">price</string>
+    <string name="field_category">category</string>
+    <string name="field_description">description</string>
+    <string name="field_on_stock">onStock</string>
+    <string name="field_status">status</string>
+    <string name="field_image_urls">imageUrls</string>
 
     <string name="title_activity_contact">ContactActivity</string>
 
@@ -53,18 +71,152 @@
     <string name="gmail">onspotbusiness@gmail.com</string>
     <string name="map_package">com.google.android.apps.maps</string>
 
-    <string name="action_ok">OK</string>
-    <string name="action_cancel">Cancel</string>
-    <string name="action_accept">Accept</string>
+
     <string name="action_os_changes">com.crown.onspot.USER_UPDATES</string>
     <string name="action_osb_changes">com.crown.onspotbusiness.USER_UPDATES</string>
+    <string name="action_osb_business_changes">com.crown.onspotbusiness.BUSINESS_UPDATES</string>
     <string name="action_osd_changes">com.crown.onspotdelivery.USER_UPDATES</string>
 
     <string name="nav_activity">Activity</string>
 
     <string name="digits_number_positive">0123456789</string>
     <string name="inr">₹</string>
+    <string name="km">km</string>
+
+    <!-- {@deprecated use from OSString} -->
     <string name="domain">https://us-central1-crown-onspot.cloudfunctions.net</string>
     <string name="msg_phone_verification">You will get SMS with a confirmation code to this number.</string>
     <string name="msg_unsupported_content_by_app">Content is not supported by this app version. Update the app to it\'s latest version and try again. If that doesn\'t work, please report us.</string>
+
+    <!--Hint and Text fills-->
+    <string name="hint_display_name">Display name</string>
+    <string name="hint_phone_number">Phone number</string>
+    <string name="hint_search">Search</string>
+    <string name="text_tv_you">You</string>
+    <string name="text_hint_otp">OTP</string>
+    <string name="text_from_fill">from &#x3C;b&#x3E;%1$s&#x3C;/b&#x3E;</string>
+    <string name="text_hint_enter_otp">Please input code below</string>
+    <string name="text_tv_dummy_price">₹ 250</string>
+    <string name="text_header_my_orders">My orders</string>
+    <string name="text_header_current_orders">Current orders</string>
+    <string name="text_title_alert_cancel_delivery">Cancel delivery</string>
+    <string name="text_body_alert_cancel_confirm">Are you sure you want to cancel?</string>
+    <string name="text_info_delivery_charge"><b>Delivery charge</b> per order</string>
+    <string name="text_info_min_order_delivery_charge">Provide <b>free delivery</b> with minimum order (price)</string>
+    <string name="text_info_min_order_delivery_charge_more_info">If the total price of an order is more than this price, there will be no delivery charge</string>
+    <string name="text_info_max_distance_free_delivery_charge">Provide <b>free delivery</b> charge with maximum distance up-to (km)</string>
+    <string name="text_info_max_distance_free_delivery_charge_more_info">If the distance between your business location and the customer delivery location is lesser than this distance, there will be no delivery charge</string>
+
+    <string name="msg_failed_to_load">Failed to load!!</string>
+    <string name="msg_address_not_found">Address not found!!</string>
+    <string name="msg_failed_to_read_image">Failed to read image!!</string>
+    <string name="msg_failed_to_upload">Failed to upload!!</string>
+    <string name="msg_failed_to_update">Failed to update!!</string>
+    <string name="msg_update_successful">Update successful</string>
+    <string name="msg_invalid_input">Invalid input!!</string>
+    <string name="msg_verified">Verified</string>
+    <string name="msg_select_product">Select product to continue…</string>
+    <string name="msg_max_10_product">Can\'t select more than 10 products</string>
+    <string name="msg_get_contact_failed">Failed to get contact no.</string>
+    <string name="msg_hod_available">Home delivery available</string>
+    <string name="msg_hod_not_available">Home delivery not available</string>
+    <string name="msg_invalid_code">Invalid code!!</string>
+    <string name="msg_invalid_request">Invalid request!!</string>
+    <string name="msg_server_error">Server error!!</string>
+    <string name="msg_otp_sent">OTP sent</string>
+    <string name="msg_no_date">No data to display</string>
+    <string name="msg_something_went_wrong">Something went wrong!!</string>
+    <string name="msg_cancel_business_partnership">If you remove &#x3C;b&#x3E;%1$s&#x3C;/b&#x3E; from your business partners, you will stop receiving orders from &#x3C;b&#x3E;%2$s&#x3C;/b&#x3E;.</string>
+    <string name="msg_cancel_business_partnership_request">Are you sure you want to remove &#x3C;b&#x3E;%1$s&#x3C;/b&#x3E; from your business partners?</string>
+    <string name="msg_inactive_business">Your business is not visible to the customer</string>
+    <string name="msg_info_inactive_business">Check your business details and fill all the require details to active your business.</string>
+    <string name="msg_info_business_review">Reviews are public and editable at any time. Business review will directly send to the business account and it is visible to everyone. Your name and profile picture will be appear with your review.</string>
+    <string name="msg_info_inactive_product">Your product is not visible to your customers. Once you have added all the required details, the product will automatically visible.&#x3C;ul&#x3E;&#x3C;li&#x3E;Add all the require product details&#x3C;/li&#x3E;&#x3C;li&#x3E;Add at least one product image&#x3C;/li&#x3E;&#x3C;/ul&#x3E;</string>
+    <string name="msg_info_content_not_found">The content you\'re looking for is not able to find.</string>
+    <string name="msg_info_business_unavailable">The business you\'re looking for is unavailable at this moment</string>
+    <string name="msg_info_auth_reqd">Authentication is required to see this page…</string>
+    <string name="msg_info_cant_handle_url">Can\'t handle this url!!</string>
+    <string name="msg_info_no_hod_business">Home delivery is not available for this business. You have to go and collect when the order is ready.</string>
+    <string name="msg_info_business_closed">&#x3C;b&#x3E; \"%1$s\" &#x3C;/b&#x3E; is closed at this moment.</string>
+    <string name="msg_info_selected_product_status_changed">Some of the items you have previously selected are unavailable now. Those items will be removed from your cart.\n\nContact seller if you want to know when will those products be available.</string>
+
+    <!--Button actions-->
+    <string name="action_btn_ok">OK</string>
+    <string name="action_btn_contact">Contact</string>
+    <string name="action_btn_email">Email</string>
+    <string name="action_btn_site">Site</string>
+    <string name="action_btn_got_it">Got it</string>
+    <string name="action_btn_send_otp">Send OTP</string>
+    <string name="action_btn_resend_otp">Resend OTP</string>
+    <string name="action_btn_verify">Verify</string>
+    <string name="action_btn_submit">Submit</string>
+    <string name="action_btn_change_profile">Change profile</string>
+    <string name="action_btn_change">Change</string>
+    <string name="action_btn_no">No</string>
+    <string name="action_btn_retry">Retry</string>
+    <string name="action_btn_yes">Yes</string>
+    <string name="action_btn_cancel">Cancel</string>
+    <string name="action_btn_confirm">Confirm</string>
+    <string name="action_btn_accept">Accept</string>
+    <string name="action_btn_details">Details</string>
+    <string name="action_btn_accept_delivery">Accept Delivery</string>
+    <string name="action_btn_start_nav">Start Navigation</string>
+    <string name="action_btn_show_nav">Show Navigation</string>
+    <string name="action_btn_order_delivered">Order Delivered</string>
+    <string name="action_btn_request_sent">Request sent</string>
+    <string name="action_btn_accepted">Accepted</string>
+    <string name="action_btn_send_request">Send request</string>
+    <string name="action_btn_remove">Remove</string>
+    <string name="action_btn_add_details">Add details</string>
+    <string name="action_btn_explore">Explore</string>
+    <string name="action_btn_order_online">Order online</string>
+
+    <!--Titles and Headers-->
+    <string name="header_how_to_reach">How to reach</string>
+    <string name="header_note">Note</string>
+    <string name="header_profile">Profile</string>
+    <string name="header_verify_phone_no">Verify phone no.</string>
+    <string name="title_Address">Address</string>
+    <string name="title_edit_profile">Edit profile</string>
+    <string name="title_delivery_partners">Delivery partners</string>
+    <string name="title_my_delivery">My delivery</string>
+    <string name="title_business_partners">Business partners</string>
+    <string name="title_add_business_partner">Add business partner</string>
+    <string name="title_share">Share</string>
+    <string name="title_rate_app">Rate this app</string>
+    <string name="title_contact_us">Contact us</string>
+    <string name="title_logout">Logout</string>
+    <string name="title_shipping_charge">Shipping charge</string>
+    <string name="title_cancel_partnership">Cancel partnership</string>
+    <string name="title_info_inactive_business">Inactive business</string>
+    <string name="title_product_availability_changed">Product availability changed</string>
+
+    <!--Image content descriptions-->
+    <string name="des_iv_customer_profile">Customer profile image</string>
+    <string name="des_iv_call_customer">Call customer</string>
+    <string name="des_iv_call_business">Call business</string>
+    <string name="des_ibtn_more_option">More options</string>
+    <string name="des_profile_image">Profile image</string>
+    <string name="des_icon">Icon</string>
+    <string name="des_more_info">More info</string>
+    <string name="des_slider_image">Slider image</string>
+    <string name="des_remove_business_partner">Remove business partner</string>
+
+    <!-- In app link -->
+    <string name="in_app_link_domain">http://onspotpackage.com</string>
+    <string name="in_app_link_order_online">http://onspotpackage.com/order-online</string>
+    <string name="in_app_link_product">http://onspotpackage.com/product</string>
+    <string name="in_app_link_business">http://onspotpackage.com/business</string>
+
+    <!-- Packages -->
+    <string name="package_onspot">com.crown.onspot</string>
+    <string name="package_onspot_business">com.crown.onspotbusiness</string>
+    <string name="package_onspot_delivery">com.crown.onspotdelivery</string>
+
+    <!-- Lorem Ipsum -->
+    <string name="li_10">Lorem ipsum dolor sit amet consectetur, adipiscing elit eu eros.</string>
+    <string name="li_20">Lorem ipsum dolor sit amet consectetur adipiscing elit, ullamcorper tempor ut malesuada etiam molestie, magnis convallis cum erat vel quis.</string>
+    <string name="li_50">Lorem ipsum dolor sit amet consectetur adipiscing elit mi vestibulum posuere sapien, ligula curabitur ridiculus ultricies sagittis accumsan laoreet nisi netus ornare enim gravida, sodales luctus ultrices fusce consequat lectus a tincidunt pellentesque nostra. Tristique porta pretium elementum egestas praesent, per porttitor vel et class nec, nascetur tempus habitasse aliquet.</string>
+    <string name="li_150">Lorem ipsum dolor sit amet consectetur adipiscing elit in dictumst, leo ligula proin elementum vulputate porttitor cursus eu, dictum ad purus integer feugiat at eget dapibus. Natoque tristique quam tincidunt luctus nulla aenean porta venenatis, dignissim dui curabitur massa montes laoreet torquent, lobortis congue ante suscipit curae augue nam. Blandit facilisi non ornare lacus metus senectus pulvinar sapien sed himenaeos mattis parturient, turpis pretium penatibus nascetur sollicitudin donec molestie ridiculus aptent nunc egestas convallis mauris, id etiam enim imperdiet nisl phasellus praesent magnis cum per habitasse. Interdum hac placerat nostra rhoncus tellus ultricies, aliquam primis ultrices consequat vehicula eleifend viverra, cubilia vivamus conubia gravida vestibulum. Mollis auctor potenti erat taciti netus est odio ac neque, magna lacinia mi cras diam commodo fames urna euismod, fringilla platea scelerisque aliquet duis posuere pellentesque class. Felis fermentum suspendisse et rutrum lectus ullamcorper malesuada iaculis tortor, fusce orci sociis hendrerit vitae nullam maecenas sagittis.</string>
+    <string name="title_activity_business">BusinessActivity</string>
 </resources>

@@ -4,7 +4,7 @@ import com.crown.library.onspotlibrary.model.business.BusinessOSD;
 
 import java.util.List;
 
-public class UserOSD extends UserV3 {
+public class UserOSD extends UserV4 {
     private Boolean hasOnSpotDeliveryAccount;
     private List<BusinessOSD> businessOSD;
     private List<String> deviceTokenOSD;

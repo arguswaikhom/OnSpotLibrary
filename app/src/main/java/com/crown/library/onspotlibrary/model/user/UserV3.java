@@ -1,29 +1,21 @@
 package com.crown.library.onspotlibrary.model.user;
 
+import com.crown.library.onspotlibrary.model.OSRating;
 import com.crown.library.onspotlibrary.utils.ListItemType;
 
 public class UserV3 extends UserV2 {
-    private Boolean hasEmailVerified;
-    private Boolean hasPhoneNumberVerified;
+    private OSRating deliveryRating;
 
     @Override
     public int getItemType() {
         return ListItemType.USER_V3;
     }
 
-    public Boolean getHasEmailVerified() {
-        return hasEmailVerified;
+    public OSRating getDeliveryRating() {
+        return deliveryRating;
     }
 
-    public void setHasEmailVerified(Boolean hasEmailVerified) {
-        this.hasEmailVerified = hasEmailVerified;
-    }
-
-    public Boolean getHasPhoneNumberVerified() {
-        return hasPhoneNumberVerified;
-    }
-
-    public void setHasPhoneNumberVerified(Boolean hasPhoneNumberVerified) {
-        this.hasPhoneNumberVerified = hasPhoneNumberVerified;
+    public void setDeliveryRating(OSRating deliveryRating) {
+        this.deliveryRating = deliveryRating;
     }
 }

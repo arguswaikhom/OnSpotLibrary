@@ -9,8 +9,8 @@ import com.google.gson.Gson;
 import static android.content.Context.MODE_PRIVATE;
 
 public class OSPreferences {
-    private static OSPreferences instance = null;
-    private SharedPreferences preferences;
+    private static final OSPreferences instance = null;
+    private final SharedPreferences preferences;
 
     private OSPreferences(Context context) {
         this.preferences = context.getSharedPreferences(OSPreferenceKey.PRIMARY_SP.name(), MODE_PRIVATE);

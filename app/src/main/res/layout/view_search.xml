@@ -1,40 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_fl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_margin="8dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
-        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="25dp"
         app:cardElevation="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
 
             <ImageButton
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
+                android:id="@+id/search_icon_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
                 android:background="@android:color/transparent"
+                android:contentDescription="@string/des_icon"
                 android:tint="@color/grey_60"
+                android:visibility="gone"
                 app:srcCompat="@drawable/ic_round_search_24" />
 
             <EditText
                 android:id="@+id/et_vs_input"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
+                android:hint="@string/hint_search"
                 android:imeOptions="actionSearch"
+                android:importantForAutofill="no"
+                android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true" />
+
+            <ProgressBar
+                android:id="@+id/loading_pbar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/search_ibtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/des_icon"
+        android:padding="8dp"
+        android:tint="@color/grey_60"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_round_search_24" />
 </LinearLayout>

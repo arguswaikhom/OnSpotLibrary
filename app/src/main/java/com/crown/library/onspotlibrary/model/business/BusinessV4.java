@@ -6,6 +6,7 @@ import java.util.List;
 
 public class BusinessV4 extends BusinessV3 {
     List<String> imageUrls;
+    List<String> productCategories;
 
     @Override
     public int getItemType() {
@@ -18,5 +19,13 @@ public class BusinessV4 extends BusinessV3 {
 
     public void setImageUrls(List<String> imageUrls) {
         this.imageUrls = imageUrls;
+    }
+
+    public List<String> getProductCategories() {
+        return productCategories;
+    }
+
+    public void setProductCategories(List<String> productCategories) {
+        this.productCategories = productCategories;
     }
 }

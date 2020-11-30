@@ -5,7 +5,7 @@ import com.crown.library.onspotlibrary.utils.ListItemType;
 public class BusinessItemOSB extends BusinessItemV4 {
     private boolean archived;
     private boolean adminBlocked;
-    private boolean live;
+    private boolean isActive;
 
     @Override
     public int getItemType() {
@@ -28,11 +28,11 @@ public class BusinessItemOSB extends BusinessItemV4 {
         this.adminBlocked = adminBlocked;
     }
 
-    public boolean isLive() {
-        return live;
+    public boolean getIsActive() {
+        return isActive;
     }
 
-    public void setLive(boolean live) {
-        this.live = live;
+    public void setIsActive(boolean active) {
+        isActive = active;
     }
 }

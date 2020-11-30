@@ -7,7 +7,7 @@ public class BusinessItemV2 extends BusinessItemV1 {
     private String category;
     private String description;
     private String imageUrl;
-    private OSRating rating;
+    private OSRating productRating;
 
     @Override
     public int getItemType() {
@@ -38,11 +38,11 @@ public class BusinessItemV2 extends BusinessItemV1 {
         this.imageUrl = imageUrl;
     }
 
-    public OSRating getRating() {
-        return rating == null ? new OSRating() : rating;
+    public OSRating getProductRating() {
+        return productRating;
     }
 
-    public void setRating(OSRating rating) {
-        this.rating = rating;
+    public void setProductRating(OSRating productRating) {
+        this.productRating = productRating;
     }
 }

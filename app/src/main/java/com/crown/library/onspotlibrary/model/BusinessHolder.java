@@ -20,12 +20,12 @@ public class BusinessHolder {
         return role;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
     public void setUserId(String userId) {

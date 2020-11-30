@@ -3,6 +3,11 @@ package com.crown.library.onspotlibrary.utils;
 import android.annotation.SuppressLint;
 import android.text.format.DateUtils;
 
+import com.google.firebase.Timestamp;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,5 +48,16 @@ public class OSTimeUtils {
             zone = "pm";
         }
         return String.format("%s:%s %s", hour == 0 ? 12 : hour, min, zone);
+    }
+
+    public static Timestamp getTimestampFromJsonObj(String jsonString, String name) {
+        Timestamp timestamp = null;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString).getJSONObject(name);
+            timestamp = new Timestamp(jsonObject.getLong(OSString.fieldTimeStampSecond), jsonObject.getInt(OSString.fieldTimeStampNanosecond));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return timestamp;
     }
 }

@@ -4,27 +4,74 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
 
+    <color name="transparent_50">#7F000000</color>
+
     <color name="grey_60">#666666</color>
     <color name="red_400">#ef5350</color>
     <color name="red_300">#e57373</color>
 
     <color name="grey_40">#999999</color>
     <color name="grey_5">#f2f2f2</color>
+    <color name="grey_10">#e6e6e6</color>
     <color name="blue_grey_200">#b0bec5</color>
 
     <color name="colorMainDark">#222831</color>
     <color name="colorRippleDark">#393e46</color>
     <color name="colorLine">#c9d6df</color>
 
-    <color name="order_status_ordered">#fbd46d</color>
-    <color name="order_status_accepted">#7fdbda</color>
-    <color name="order_status_preparing">#ff847c</color>
-    <color name="order_status_ready">#2E96F8</color>
-    <color name="order_status_out_for_deliver">#ade498</color>
+    <color name="order_status_ordered">#A1C892</color>
+    <color name="order_status_accepted">#86C3C2</color>
+    <color name="order_status_preparing">#E8CD86</color>
+    <color name="order_status_ready">#6489AC</color>
+    <color name="order_status_out_for_deliver">#988EA3</color>
     <color name="order_status_canceled">#f09ae9</color>
     <color name="order_status_delivered">#6f4a8e</color>
 
     <color name="item_status_available">#ade498</color>
     <color name="item_status_not_available">#2E96F8</color>
     <color name="item_status_out_of_stock">#ff847c</color>
+
+    <color name="light_1">#CCFFFFFF</color>
+    <color name="light_2">#99FFFFFF</color>
+    <color name="light_3">#66FFFFFF</color>
+    <color name="text_hint">#66FFFFFF</color>
+
+    <color name="dark_1">#101010</color>
+    <color name="dark_2">#66000000</color>
+    <color name="dark_3">#212121</color>
+    <color name="dark_4">#303030</color>
+    <color name="dark_5">#303030</color>
+    <color name="dark_6">#424242</color>
+
+    <color name="yellow_50">#fffde7</color>
+    <color name="blue_50">#e3f2fd</color>
+    <color name="red_50">#ffebee</color>
+    <color name="green_50">#e8f5e9</color>
+    <color name="amber_50">#fff8e1</color>
+    <color name="brown_50">#efebe9</color>
+    <color name="cyan_50">#e0f7fa</color>
+    <color name="indigo_50">#e8eaf6</color>
+    <color name="lime_50">#f9fbe7</color>
+    <color name="orange_50">#fff3e0</color>
+    <color name="pink_50">#fce4ec</color>
+    <color name="purple_50">#f3e5f5</color>
+    <color name="teal_50">#e0f2f1</color>
+
+    <integer-array name="colorMix">
+        <item>@color/yellow_50</item>
+        <item>@color/blue_50</item>
+        <item>@color/red_50</item>
+        <item>@color/green_50</item>
+        <item>@color/amber_50</item>
+        <item>@color/brown_50</item>
+        <item>@color/cyan_50</item>
+        <item>@color/indigo_50</item>
+        <item>@color/lime_50</item>
+        <item>@color/orange_50</item>
+        <item>@color/pink_50</item>
+        <item>@color/purple_50</item>
+        <item>@color/teal_50</item>
+    </integer-array>
+
+    <!--<color name="mtrl_textinput_default_box_stroke_color">#fff</color>-->
 </resources>

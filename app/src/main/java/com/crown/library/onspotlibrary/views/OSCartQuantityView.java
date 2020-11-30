@@ -16,13 +16,6 @@ public class OSCartQuantityView extends LinearLayout {
     private ViewCartQuantityBinding binding;
     private OnQuantityChangeListener listener;
 
-    public static interface OnQuantityChangeListener {
-        int ADD = 1;
-        int SUB = 2;
-
-        void onQuantityChange(View view, int mode);
-    }
-
     public OSCartQuantityView(Context context) {
         super(context);
         init(context, null);
@@ -49,7 +42,6 @@ public class OSCartQuantityView extends LinearLayout {
             listener.onQuantityChange(this, OnQuantityChangeListener.SUB);
     }
 
-
     public void setQuantity(int quantity) {
         binding.quantityTv.setText(String.format(Locale.ENGLISH, "%d", quantity));
     }
@@ -61,5 +53,12 @@ public class OSCartQuantityView extends LinearLayout {
 
     public void setOnQuantityChangeListener(OnQuantityChangeListener listener) {
         this.listener = listener;
+    }
+
+    public interface OnQuantityChangeListener {
+        int ADD = 1;
+        int SUB = 2;
+
+        void onQuantityChange(View view, int mode);
     }
 }

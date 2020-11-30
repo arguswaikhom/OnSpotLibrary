@@ -10,13 +10,13 @@ public class OrderStatusRecord {
     public OrderStatusRecord() {
     }
 
-    public OrderStatus getStatus() {
-        return status;
-    }
-
     public OrderStatusRecord(OrderStatus status, Timestamp timestamp) {
         this.status = status;
         this.timestamp = timestamp;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
     }
 
     public void setStatus(OrderStatus status) {

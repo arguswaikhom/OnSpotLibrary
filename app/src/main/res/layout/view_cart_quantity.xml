@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout_quantity"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -10,10 +11,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_subtraction_circle"
-        android:tint="#707070" />
+        app:tint="#707070" />
 
     <TextView
         android:id="@+id/quantity_tv"
@@ -30,9 +32,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
         android:focusable="true"
         android:scaleType="fitXY"
         android:src="@drawable/ic_add_circle_outline"
-        android:tint="#707070" />
+        app:tint="#707070" />
 </LinearLayout>

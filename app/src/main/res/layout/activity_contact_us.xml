@@ -53,7 +53,7 @@
         android:background="@color/blue_grey_200" />
 
     <LinearLayout
-        android:id="@+id/gmail_ll"
+        android:id="@+id/on_gmail_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

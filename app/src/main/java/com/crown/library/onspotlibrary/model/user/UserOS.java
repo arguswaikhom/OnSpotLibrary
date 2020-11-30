@@ -2,7 +2,7 @@ package com.crown.library.onspotlibrary.model.user;
 
 import java.util.List;
 
-public class UserOS extends UserV3 {
+public class UserOS extends UserV4 {
     private Boolean hasOnSpotAccount;
     private List<String> deviceToken;
 

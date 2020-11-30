@@ -2,11 +2,8 @@ package com.crown.library.onspotlibrary.model;
 
 import android.os.Build;
 
-import com.crown.library.onspotlibrary.BuildConfig;
-
+// todo: fix version code and name
 public class OSBuild {
-    int vcApp;
-    String vnApp;
     final String model = Build.MODEL;
     final String brand = Build.BRAND;
     final String device = Build.DEVICE;
@@ -15,8 +12,10 @@ public class OSBuild {
     final String hardware = Build.HARDWARE;
     final String os = Build.VERSION.BASE_OS;
     final String manufacturer = Build.MANUFACTURER;
-    final int vcLibrary = BuildConfig.VERSION_CODE;
-    final String vnLibrary = BuildConfig.VERSION_NAME;
+    int vcApp;
+    String vnApp;
+   /* final int vcLibrary = BuildConfig.VERSION_CODE;
+    final String vnLibrary = BuildConfig.VERSION_NAME;*/
 
     public OSBuild() {
     }
@@ -26,20 +25,20 @@ public class OSBuild {
         this.vnApp = vnApp;
     }
 
-    public void setVcApp(int vcApp) {
-        this.vcApp = vcApp;
-    }
-
-    public void setVnApp(String vnApp) {
-        this.vnApp = vnApp;
-    }
-
     public int getVcApp() {
         return vcApp;
     }
 
+    public void setVcApp(int vcApp) {
+        this.vcApp = vcApp;
+    }
+
     public String getVnApp() {
         return vnApp;
+    }
+
+    public void setVnApp(String vnApp) {
+        this.vnApp = vnApp;
     }
 
     public int getSdk() {
@@ -58,13 +57,13 @@ public class OSBuild {
         return product;
     }
 
-    public int getVcLibrary() {
+    /*public int getVcLibrary() {
         return vcLibrary;
     }
 
     public String getVnLibrary() {
         return vnLibrary;
-    }
+    }*/
 
     public String getBrand() {
         return brand;

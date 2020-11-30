@@ -31,7 +31,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class CreateProfileImage extends AsyncTask<String, Void, Bitmap> {
     private final String TAG = CreateProfileImage.class.getName();
-    private WeakReference<Context> context;
+    private final WeakReference<Context> context;
     private String userId;
 
     public CreateProfileImage(Context context) {

@@ -13,16 +13,8 @@ import com.google.android.gms.location.LocationServices;
 
 public class CurrentLocation {
     private static CurrentLocation instance;
-    private Context context;
+    private final Context context;
     private Location location;
-
-    public interface OnReturnLocation {
-        void onReturnLocation(Location location);
-    }
-
-    public interface OnMissingPermission {
-        void onMissingPermission();
-    }
 
     public CurrentLocation(Context context) {
         this.context = context;
@@ -74,5 +66,13 @@ public class CurrentLocation {
                 if (failResponse != null) failResponse.onVoidResponse();
             }
         });
+    }
+
+    public interface OnReturnLocation {
+        void onReturnLocation(Location location);
+    }
+
+    public interface OnMissingPermission {
+        void onMissingPermission();
     }
 }

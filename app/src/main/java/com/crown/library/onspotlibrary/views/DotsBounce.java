@@ -19,7 +19,7 @@ public class DotsBounce extends LinearLayout {
     private static final int POST_DIV = 6;
     boolean onLayoutReach = false;
     private ObjectAnimator[] animator;
-    private GradientDrawable circle = new GradientDrawable();
+    private final GradientDrawable circle = new GradientDrawable();
     private Context context;
     private ImageView[] img;
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 
+@Deprecated
 public class OSDeliveryCharge {
     Integer index;
     Integer from;

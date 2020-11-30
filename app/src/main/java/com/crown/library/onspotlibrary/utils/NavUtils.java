@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
+@Deprecated
 public class NavUtils {
 
+    @Deprecated
     public static void showOnPlayStore(Activity activity, String packageName) {
         try {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName)));

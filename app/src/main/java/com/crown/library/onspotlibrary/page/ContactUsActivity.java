@@ -28,7 +28,7 @@ public class ContactUsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         binding.instagramLl.setOnClickListener(this::onClickedInstagram);
-        binding.gmailLl.setOnClickListener(this::onClickedGmail);
+        binding.onGmailLl.setOnClickListener(this::onClickedGmail);
     }
 
     @Override

@@ -19,6 +19,7 @@ import com.crown.library.onspotlibrary.utils.OSJsonParse;
 import com.crown.library.onspotlibrary.utils.OSLaunchUtil;
 import com.crown.library.onspotlibrary.utils.OSLocationUtils;
 import com.crown.library.onspotlibrary.utils.OSMessage;
+import com.crown.library.onspotlibrary.utils.OSString;
 import com.crown.library.onspotlibrary.utils.callback.OnBooleanResponse;
 import com.crown.library.onspotlibrary.utils.callback.OnFailResponse;
 import com.crown.library.onspotlibrary.views.LoadingBounceDialog;
@@ -45,22 +46,16 @@ import java.util.List;
 import java.util.Map;
 
 public class OSGoogleSignIn {
-    private int mRequestCode;
+    private final int mRequestCode;
     private boolean isNewUser = false;
-    private String appName;
+    private final String appName;
     private Boolean isAvailableHere = null;
-    private Activity mActivity;
-    private GoogleSignInClient mClient;
-    private FirebaseAuth mAuth;
+    private final Activity mActivity;
+    private final GoogleSignInClient mClient;
+    private final FirebaseAuth mAuth;
     private GoogleSignInAccount account;
-    private OnGoogleSignInResponse mCallback;
-    private LoadingBounceDialog loadingBounce;
-
-    public interface OnGoogleSignInResponse {
-        void onSuccessGoogleSignIn(DocumentSnapshot doc);
-
-        void onFailureGoogleSignIn(String response, Exception e);
-    }
+    private final OnGoogleSignInResponse mCallback;
+    private final LoadingBounceDialog loadingBounce;
 
     public OSGoogleSignIn(Activity activity, GoogleSignInClient client, FirebaseAuth auth, String appName, int requestCode, OnGoogleSignInResponse callback) {
         this.mActivity = activity;
@@ -267,15 +262,13 @@ public class OSGoogleSignIn {
     public void isExistingUser(OnBooleanResponse successResponse, OnFailResponse failResponse) {
         Log.d("debug", "account: " + account);
         if (account != null) {
-            String url = mActivity.getString(R.string.domain) + "/getAccountAvailability/";
-            StringRequest request = new StringRequest(Request.Method.POST, url, response -> {
+            StringRequest request = new StringRequest(Request.Method.POST, OSString.apiGetAccountAvailability, response -> {
                 JSONObject jsonObject = OSJsonParse.stringToObject(response);
                 Boolean available = OSJsonParse.booleanFromObject(jsonObject, "isAvailable");
 
                 if (available == null) {
                     if (failResponse != null) failResponse.onFailed(null, "Something went wrong");
-                } else if (available) successResponse.onResponse(true);
-                else successResponse.onResponse(false);
+                } else successResponse.onResponse(available);
             }, error -> {
                 if (failResponse != null) failResponse.onFailed(error, error.getMessage());
             }) {
@@ -289,5 +282,11 @@ public class OSGoogleSignIn {
 
             OSVolley.getInstance(mActivity.getApplicationContext()).addToRequestQueue(request);
         }
+    }
+
+    public interface OnGoogleSignInResponse {
+        void onSuccessGoogleSignIn(DocumentSnapshot doc);
+
+        void onFailureGoogleSignIn(String response, Exception e);
     }
 }

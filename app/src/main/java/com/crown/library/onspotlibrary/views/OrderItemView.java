@@ -1,19 +1,18 @@
 package com.crown.library.onspotlibrary.views;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
-import android.widget.TextView;
 
-import com.crown.library.onspotlibrary.R;
+import com.crown.library.onspotlibrary.databinding.ViewOrderItemBinding;
 
 import java.util.Locale;
 
 public class OrderItemView extends TableLayout {
-
-    private Context context;
+    private final Context context;
+    private boolean hasDarkTheme;
 
     public OrderItemView(Context context) {
         super(context);
@@ -41,10 +40,21 @@ public class OrderItemView extends TableLayout {
     }
 
     public void addChild(String a, String b, String c) {
-        LinearLayout root = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.view_order_item, null);
-        ((TextView) root.findViewById(R.id.tv_voi_quantity)).setText(a);
-        ((TextView) root.findViewById(R.id.tv_voi_item_name)).setText(b);
-        ((TextView) root.findViewById(R.id.tv_voi_price)).setText(c);
-        addView(root);
+        ViewOrderItemBinding binding = ViewOrderItemBinding.inflate(LayoutInflater.from(context), this, false);
+        binding.quantityTv.setText(a);
+        binding.nameTv.setText(b);
+        binding.priceTv.setText(c);
+
+        if (hasDarkTheme) {
+            binding.quantityTv.setTextColor(Color.WHITE);
+            binding.nameTv.setTextColor(Color.WHITE);
+            binding.priceTv.setTextColor(Color.WHITE);
+        }
+
+        addView(binding.getRoot());
+    }
+
+    public void setHasDarkTheme(boolean hasDarkTheme) {
+        this.hasDarkTheme = hasDarkTheme;
     }
 }

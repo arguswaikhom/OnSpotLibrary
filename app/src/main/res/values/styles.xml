@@ -1,8 +1,6 @@
 <resources>
 
-    <style name="Material" parent="Theme.MaterialComponents.Light.DarkActionBar">
-
-    </style>
+    <style name="Material" parent="Theme.MaterialComponents.Light.DarkActionBar" />
 
     <style name="Material.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -14,6 +12,39 @@
     <style name="Material.NoActionBar.GreyStatusBar">
         <item name="android:statusBarColor">@color/grey_5</item>
         <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Material.NoActionBar.Light">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColorSecondary">@android:color/black</item>
+    </style>
+
+    <style name="Material.NoActionBar.Light.Grey">
+        <item name="android:statusBarColor">@color/grey_5</item>
+        <item name="android:windowBackground">@color/grey_5</item>
+    </style>
+
+    <style name="Material.NoActionBar.Light.White">
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="MaterialDayNight" parent="Theme.MaterialComponents.DayNight" />
+
+    <style name="MaterialDayNight.NoActionBar" parent="Theme.MaterialComponents.DayNight">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
+
+    <style name="LightToolBar" parent="Material.NoActionBar">
+        <item name="android:textColorSecondary">@android:color/white</item>
     </style>
 
     <style name="ThemeDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -29,6 +60,14 @@
     <style name="DialogActivity.NoActionBar" parent="@style/DialogTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_dialog</item>
     </style>
 
     <style name="CardViewStyle">
@@ -47,7 +86,55 @@
         <item name="android:layout_marginBottom">4dp</item>
     </style>
 
+    <style name="GrayVerticalDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
     <style name="SmallButton" parent="@android:style/Widget.Button.Small" />
 
     <style name="SmallButton.Outline" parent="Widget.MaterialComponents.Button.OutlinedButton" />
+
+    <style name="ProfileImage" />
+
+    <style name="ProfileImage.Medium">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:src">@drawable/ic_round_account_circle_24</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Text.ProfileMedium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text.ListViewHeader">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text.HeaderView">
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Min">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ProfileMenuStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="dividerColor">@color/text_hint</item>
+        <item name="iconColor">@android:color/white</item>
+        <item name="titleColor">@android:color/white</item>
+    </style>
 </resources>

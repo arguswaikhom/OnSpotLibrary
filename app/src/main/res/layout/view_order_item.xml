@@ -6,21 +6,21 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tv_voi_quantity"
+        android:id="@+id/quantity_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".10"
         tools:text="x5" />
 
     <TextView
-        android:id="@+id/tv_voi_item_name"
+        android:id="@+id/name_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".60"
         tools:text="Pizza" />
 
     <TextView
-        android:id="@+id/tv_voi_price"
+        android:id="@+id/price_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".30"

@@ -30,6 +30,9 @@ public class OSOrderUpload extends ListItem {
         return ListItemType.OS_ORDER;
     }
 
+    public void setItemType(int itemType) {
+    }
+
     @NonNull
     @Override
     public String toString() {
@@ -52,6 +55,10 @@ public class OSOrderUpload extends ListItem {
             }
         }
         return orderedAt;
+    }
+
+    public void setOrderedAt(Timestamp orderedAt) {
+        this.orderedAt = orderedAt;
     }
 
     public Long getTotalPrice() {
@@ -104,10 +111,6 @@ public class OSOrderUpload extends ListItem {
 
     public OrderStatus getStatus() {
         return status;
-    }
-
-    public void setOrderedAt(Timestamp orderedAt) {
-        this.orderedAt = orderedAt;
     }
 
     public void setStatus(OrderStatus status) {

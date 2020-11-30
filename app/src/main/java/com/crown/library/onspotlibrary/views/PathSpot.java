@@ -12,10 +12,11 @@ import androidx.core.widget.ImageViewCompat;
 
 import com.crown.library.onspotlibrary.R;
 
+// todo: use view binding
 public class PathSpot extends RelativeLayout {
     private ImageView bgIV;
     private ImageView iconIV;
-    private Context context;
+    private final Context context;
 
     public PathSpot(Context context, AttributeSet attrs) {
         super(context, attrs);

@@ -50,6 +50,10 @@ public class OSOrderUpload extends ListItem {
         return orderedAt;
     }
 
+    public void setOrderedAt(Timestamp orderedAt) {
+        this.orderedAt = orderedAt;
+    }
+
     public Long getTotalPrice() {
         return totalPrice;
     }
@@ -100,10 +104,6 @@ public class OSOrderUpload extends ListItem {
 
     public OrderStatus getStatus() {
         return status;
-    }
-
-    public void setOrderedAt(Timestamp orderedAt) {
-        this.orderedAt = orderedAt;
     }
 
     public void setStatus(OrderStatus status) {

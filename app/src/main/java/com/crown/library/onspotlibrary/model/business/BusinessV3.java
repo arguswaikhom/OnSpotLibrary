@@ -1,21 +1,17 @@
 package com.crown.library.onspotlibrary.model.business;
 
-import com.crown.library.onspotlibrary.model.OSDeliveryCharge;
+import com.crown.library.onspotlibrary.model.OSShippingCharge;
 import com.crown.library.onspotlibrary.model.OSTime;
 import com.crown.library.onspotlibrary.utils.ListItemType;
 
-import java.util.List;
-
-public class BusinessV3 extends BusinessV2 {
+public class BusinessV3 extends BusinessV2a {
     OSTime openingTime;
     OSTime closingTime;
     String openingDays;
     Long deliveryRange;
-    Boolean passiveOpenEnable;
-    Boolean open;
     Boolean fsAvailable;
     Long minOrder;
-    List<OSDeliveryCharge> shippingCharges;
+    OSShippingCharge shippingCharges;
 
     @Override
     public int getItemType() {
@@ -54,22 +50,6 @@ public class BusinessV3 extends BusinessV2 {
         this.deliveryRange = deliveryRange;
     }
 
-    public Boolean getPassiveOpenEnable() {
-        return passiveOpenEnable;
-    }
-
-    public void setPassiveOpenEnable(Boolean passiveOpenEnable) {
-        this.passiveOpenEnable = passiveOpenEnable;
-    }
-
-    public Boolean getOpen() {
-        return open;
-    }
-
-    public void setOpen(Boolean open) {
-        this.open = open;
-    }
-
     public Boolean getFsAvailable() {
         return fsAvailable;
     }
@@ -86,11 +66,11 @@ public class BusinessV3 extends BusinessV2 {
         this.minOrder = minOrder;
     }
 
-    public List<OSDeliveryCharge> getShippingCharges() {
+    public OSShippingCharge getShippingCharges() {
         return shippingCharges;
     }
 
-    public void setShippingCharges(List<OSDeliveryCharge> shippingCharges) {
+    public void setShippingCharges(OSShippingCharge shippingCharges) {
         this.shippingCharges = shippingCharges;
     }
 }

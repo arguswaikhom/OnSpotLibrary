@@ -8,7 +8,7 @@ public class OSJsonParse {
     public static JSONObject stringToObject(String string) {
         try {
             return new JSONObject(string);
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return new JSONObject();
@@ -48,5 +48,14 @@ public class OSJsonParse {
             e.printStackTrace();
         }
         return new JSONArray();
+    }
+
+    public static JSONObject objectFromObject(JSONObject object, String key) {
+        try {
+            return object.getJSONObject(key);
+        } catch (JSONException ignore) {
+
+        }
+        return new JSONObject();
     }
 }

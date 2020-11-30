@@ -9,7 +9,7 @@ import java.util.List;
 public class UnSupportedContent extends ListItem {
     private String userId;
     private String packageName;
-    private Date happenedAt = new Date();
+    private final Date happenedAt = new Date();
     private OSBuild build = new OSBuild();
     private List<Object> items = new ArrayList<>();
     private List<String> exceptions = new ArrayList<>();
@@ -31,10 +31,6 @@ public class UnSupportedContent extends ListItem {
     @Override
     public int getItemType() {
         return ListItemType.UNSUPPORTED_CONTENT;
-    }
-
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
     }
 
     public List<Object> getItems() {
@@ -63,6 +59,10 @@ public class UnSupportedContent extends ListItem {
 
     public String getPackageName() {
         return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 
     public OSBuild getBuild() {

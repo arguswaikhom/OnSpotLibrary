@@ -4,35 +4,32 @@ import androidx.annotation.NonNull;
 
 import com.crown.library.onspotlibrary.model.ListItem;
 import com.crown.library.onspotlibrary.utils.ListItemType;
+import com.crown.library.onspotlibrary.utils.emun.OSClass;
 import com.google.gson.Gson;
 
 public class BusinessV0 extends ListItem {
-    String businessId;
     String businessRefId;
     String displayName;
     String imageUrl;
-
-    @Override
-    public int getItemType() {
-        return ListItemType.BUSINESS_V0;
-    }
+    Boolean isOpen;
+    OSClass osClass = OSClass.BUSINESS;
 
     public BusinessV0() {
     }
 
     public <T extends BusinessV0> BusinessV0(T business) {
-        this.businessId = business.getBusinessId();
         this.businessRefId = business.getBusinessRefId();
         this.displayName = business.getDisplayName();
         this.imageUrl = business.getImageUrl();
     }
 
-    public String getBusinessId() {
-        return businessId;
+    public static <T extends BusinessV0> T fromJson(String json, Class<T> cls) {
+        return new Gson().fromJson(json, cls);
     }
 
-    public void setBusinessId(String businessId) {
-        this.businessId = businessId;
+    @Override
+    public int getItemType() {
+        return ListItemType.BUSINESS_V0;
     }
 
     public String getBusinessRefId() {
@@ -57,6 +54,22 @@ public class BusinessV0 extends ListItem {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public OSClass getOsClass() {
+        return osClass;
+    }
+
+    public void setOsClass(OSClass osClass) {
+        this.osClass = osClass;
+    }
+
+    public Boolean getIsOpen() {
+        return isOpen;
+    }
+
+    public void setIsOpen(Boolean open) {
+        isOpen = open;
     }
 
     @NonNull
