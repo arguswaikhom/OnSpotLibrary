@@ -136,7 +136,8 @@
     <string name="msg_info_business_unavailable">The business you\'re looking for is unavailable at this moment</string>
     <string name="msg_info_auth_reqd">Authentication is required to see this page…</string>
     <string name="msg_info_cant_handle_url">Can\'t handle this url!!</string>
-    <string name="msg_info_no_hod_business">Home delivery is not available for this business. You have to go and collect when the order is ready.</string>
+    <string name="msg_info_no_hod_business">Home delivery is not available for this business. You have to go and collect your order when the order is ready.</string>
+    <string name="msg_info_no_hod_in_selected_location">Home delivery is not available in you selected location. You have to go and collect your order when the order is ready.</string>
     <string name="msg_info_business_closed">&#x3C;b&#x3E; \"%1$s\" &#x3C;/b&#x3E; is closed at this moment.</string>
     <string name="msg_info_selected_product_status_changed">Some of the items you have previously selected are unavailable now. Those items will be removed from your cart.\n\nContact seller if you want to know when will those products be available.</string>
 

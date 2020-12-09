@@ -38,6 +38,8 @@ public class OSString {
     public static final String fieldIsOpen = "isOpen";
     public static final String fieldAdminBlocked = "adminBlocked";
     public static final String fieldIsActive = "isActive";
+    public static final String fieldOwner = "owner";
+    public static final String fieldDeviceToken = "deviceToken";
 
     // business-item
     public static final String refItem = "item";

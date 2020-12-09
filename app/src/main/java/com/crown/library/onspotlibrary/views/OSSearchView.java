@@ -1,5 +1,6 @@
 package com.crown.library.onspotlibrary.views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -70,6 +71,10 @@ public class OSSearchView extends LinearLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+    }
+
+    public void hideKeyboard() {
+        OSConfig.hideKeyboard((Activity) getContext());
     }
 
     public void setHint(String hint) {

@@ -79,7 +79,7 @@ public class OSGoogleSignIn {
         mActivity.startActivityForResult(signInIntent, mRequestCode);
     }
 
-    public void setAccount(Intent data) {
+    /*public void setAccount(Intent data) {
         loadingBounce.show();
         try {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
@@ -88,12 +88,11 @@ public class OSGoogleSignIn {
             mCallback.onFailureGoogleSignIn("Sign in failed", e);
         }
         loadingBounce.dismiss();
-    }
+    }*/
 
     /**
      * Call this method from #onActivityResult() of the activity after the user account was selected
      */
-    @Deprecated
     public void signIn(Intent data) {
         loadingBounce.show();
         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);

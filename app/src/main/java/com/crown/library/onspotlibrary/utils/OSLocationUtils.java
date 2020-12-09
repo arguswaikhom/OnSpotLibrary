@@ -75,7 +75,7 @@ public class OSLocationUtils {
     }
 
     public static boolean isEmpty(OSLocation location) {
-        return location.getGeoPoint() == null || location.getAddressLine() == null || location.getHowToReach() == null || location.getAddressLine().trim().equals("") || location.getHowToReach().trim().equals("");
+        return location == null || location.getGeoPoint() == null || location.getAddressLine() == null || location.getHowToReach() == null || location.getAddressLine().trim().equals("") || location.getHowToReach().trim().equals("");
     }
 
 }

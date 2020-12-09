@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.crown.library.onspotlibrary.R;
 import com.crown.library.onspotlibrary.controller.OSViewAnimation;
-import com.crown.library.onspotlibrary.databinding.ActivityPhoneVerificationBinding;
+import com.crown.library.onspotlibrary.databinding.ActivityPhoneVerificationV2Binding;
 import com.crown.library.onspotlibrary.utils.OSMessage;
 import com.crown.library.onspotlibrary.utils.OSValidate;
 import com.google.firebase.FirebaseException;
@@ -32,12 +32,12 @@ public class PhoneVerificationActivity extends AppCompatActivity {
     private String verificationID;
     private boolean hasSentCodeBefore = false;
     private ForceResendingToken resendingToken;
-    private ActivityPhoneVerificationBinding binding;
+    private ActivityPhoneVerificationV2Binding binding;
     private final OnVerificationStateChangedCallbacks phoneVerificationCallBack = new OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-            binding.otpTiet.setText(phoneAuthCredential.getSmsCode());
-            signInWithPhoneAuthCredential(phoneAuthCredential);
+            /*binding.otpTiet.setText(phoneAuthCredential.getSmsCode());
+            signInWithPhoneAuthCredential(phoneAuthCredential);*/
         }
 
         @Override
@@ -65,20 +65,20 @@ public class PhoneVerificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityPhoneVerificationBinding.inflate(getLayoutInflater());
+        binding = ActivityPhoneVerificationV2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         phoneNumber = getIntent().getStringExtra(PHONE_NO);
         if (!TextUtils.isEmpty(phoneNumber))
             binding.phoneNoTiet.setText(phoneNumber.replace("+91", ""));
-        binding.sendOtpAcbtn.setOnClickListener(this::onClickedSendOTP);
-        binding.verifyAcbtn.setOnClickListener(this::onClickedVerify);
+        binding.sendOtpBtn.setOnClickListener(this::onClickedSendOTP);
+        binding.verifyBtn.setOnClickListener(this::onClickedVerify);
     }
 
     private void onClickedSendOTP(View view) {
         phoneNumber = "+91" + binding.phoneNoTiet.getText().toString();
 
         if (!OSValidate.isPhoneNumber(phoneNumber)) {
-            binding.phoneNoTil.setError(getString(R.string.msg_invalid_input));
+            binding.otpTil.setError(getString(R.string.msg_invalid_input));
             return;
         }
 
@@ -86,7 +86,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
             PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 120, TimeUnit.SECONDS, this, phoneVerificationCallBack, resendingToken);
         } else {
             hasSentCodeBefore = true;
-            binding.sendOtpAcbtn.setText(getString(R.string.action_btn_resend_otp));
+            binding.sendOtpBtn.setText(getString(R.string.action_btn_resend_otp));
             PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 120, TimeUnit.SECONDS, this, phoneVerificationCallBack);
         }
     }
@@ -96,7 +96,7 @@ public class PhoneVerificationActivity extends AppCompatActivity {
         String otp = binding.otpTiet.getText().toString();
 
         if (!OSValidate.isPhoneNumber(phoneNumber)) {
-            binding.phoneNoTil.setError(getString(R.string.msg_invalid_input));
+            binding.otpTil.setError(getString(R.string.msg_invalid_input));
             showSendOtp();
             return;
         }
@@ -128,12 +128,12 @@ public class PhoneVerificationActivity extends AppCompatActivity {
     }
 
     private void showSendOtp() {
-        OSViewAnimation.collapse(binding.verifyMcv);
-        OSViewAnimation.expand(binding.sendOtpMcv);
+        OSViewAnimation.collapse(binding.verifyRoot);
+        OSViewAnimation.expand(binding.sendOtpRoot);
     }
 
     private void showVerify() {
-        OSViewAnimation.collapse(binding.sendOtpMcv);
-        OSViewAnimation.expand(binding.verifyMcv);
+        OSViewAnimation.collapse(binding.sendOtpRoot);
+        OSViewAnimation.expand(binding.verifyRoot);
     }
 }

@@ -1,12 +1,11 @@
 package com.crown.library.onspotlibrary.model.business;
 
 import com.crown.library.onspotlibrary.model.OSShippingCharge;
-import com.crown.library.onspotlibrary.model.OSTime;
 import com.crown.library.onspotlibrary.utils.ListItemType;
 
 public class BusinessV3 extends BusinessV2a {
-    OSTime openingTime;
-    OSTime closingTime;
+    String opensAt;
+    String closesAt;
     String openingDays;
     Long deliveryRange;
     Boolean fsAvailable;
@@ -18,20 +17,20 @@ public class BusinessV3 extends BusinessV2a {
         return ListItemType.BUSINESS_V3;
     }
 
-    public OSTime getOpeningTime() {
-        return openingTime;
+    public String getOpensAt() {
+        return opensAt;
     }
 
-    public void setOpeningTime(OSTime openingTime) {
-        this.openingTime = openingTime;
+    public void setOpensAt(String opensAt) {
+        this.opensAt = opensAt;
     }
 
-    public OSTime getClosingTime() {
-        return closingTime;
+    public String getClosesAt() {
+        return closesAt;
     }
 
-    public void setClosingTime(OSTime closingTime) {
-        this.closingTime = closingTime;
+    public void setClosesAt(String closesAt) {
+        this.closesAt = closesAt;
     }
 
     public String getOpeningDays() {
