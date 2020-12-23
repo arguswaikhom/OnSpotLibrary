@@ -54,12 +54,12 @@ public class ProductActivity extends AppCompatActivity {
         binding.imageSlider.setSliderAdapter(adapter);
         binding.orderOnlineBtn.setOnClickListener(v -> {
             if (business == null) return;
-            String url = getString(R.string.in_app_link_order_online) + "/" + business.getBusinessRefId();
+            String url = OSString.linkOrderOnline + "/" + business.getBusinessRefId();
             OSCommonIntents.onIntentTargetOnSpot(this, url);
         });
         binding.offeredByBusiness.setOnClickListener(v -> {
             if (business == null) return;
-            String url = getString(R.string.in_app_link_business) + "/" + business.getBusinessRefId();
+            String url = OSString.linkBusiness + "/" + business.getBusinessRefId();
             OSCommonIntents.onIntentTargetOnSpot(this, url);
         });
     }

@@ -10,22 +10,22 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.crown.library.onspotlibrary.R;
 import com.crown.library.onspotlibrary.databinding.ActivityContactUsBinding;
+import com.crown.library.onspotlibrary.utils.OSString;
 
 public class ContactUsActivity extends AppCompatActivity {
-
-    private ActivityContactUsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityContactUsBinding.inflate(getLayoutInflater());
+        ActivityContactUsBinding binding = ActivityContactUsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.toolbar.setTitle("Contact us");
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        binding.contactInstagramTv.setText(String.format("@%s", OSString.contactInstagram));
+        binding.contactGmailTv.setText(OSString.contactGmail);
 
         binding.instagramLl.setOnClickListener(this::onClickedInstagram);
         binding.onGmailLl.setOnClickListener(this::onClickedGmail);
@@ -41,21 +41,21 @@ public class ContactUsActivity extends AppCompatActivity {
     }
 
     void onClickedInstagram(View view) {
-        Uri uri = Uri.parse("https://www.instagram.com/onspotapp/");
+        Uri uri = Uri.parse("https://www.instagram.com/" + OSString.contactInstagram + "/");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         intent.setPackage("com.instagram.android");
 
         try {
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/onspotapp/")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/" + OSString.contactInstagram + "/")));
         }
     }
 
     void onClickedGmail(View view) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.gmail)});
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{OSString.contactGmail});
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }

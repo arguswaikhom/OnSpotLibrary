@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Contact us" />
 
     <LinearLayout
         android:id="@+id/instagram_ll"
@@ -34,14 +35,15 @@
             android:src="@drawable/logo_instagram" />
 
         <TextView
+            android:id="@+id/contact_instagram_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
             android:gravity="center"
-            android:text="@string/instagram"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="Instagram" />
     </LinearLayout>
 
     <View
@@ -69,14 +71,15 @@
             android:src="@drawable/logo_gmail" />
 
         <TextView
+            android:id="@+id/contact_gmail_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
             android:gravity="center"
-            android:text="@string/gmail"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:text="Gmail" />
     </LinearLayout>
 
     <View
@@ -86,5 +89,4 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         android:background="@color/blue_grey_200" />
-
 </LinearLayout>

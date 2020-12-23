@@ -34,8 +34,13 @@ public class OSPreferences {
     public <T> T getObject(OSPreferenceKey key, Class<T> tClass) {
         String json = preferences.getString(key.name(), null);
         if (json != null) {
-            if (tClass.equals(String.class)) return (T) json;
-            return new Gson().fromJson(json, tClass);
+            try {
+                if (tClass.equals(String.class)) return (T) json;
+                return new Gson().fromJson(json, tClass);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
         return null;
     }

@@ -70,7 +70,7 @@ public class BusinessActivity extends AppCompatActivity {
 
         binding.orderOnlineBtn.setOnClickListener(v -> {
             if (business == null) return;
-            String url = getString(R.string.in_app_link_order_online) + "/" + business.getBusinessRefId();
+            String url = OSString.linkOrderOnline + "/" + business.getBusinessRefId();
             OSCommonIntents.onIntentTargetOnSpot(this, url);
         });
     }

@@ -3,6 +3,7 @@ package com.crown.library.onspotlibrary.page;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.auth.PhoneAuthProvider.ForceResendingToken;
 import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks;
@@ -36,8 +38,8 @@ public class PhoneVerificationActivity extends AppCompatActivity {
     private final OnVerificationStateChangedCallbacks phoneVerificationCallBack = new OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-            /*binding.otpTiet.setText(phoneAuthCredential.getSmsCode());
-            signInWithPhoneAuthCredential(phoneAuthCredential);*/
+            binding.otpTiet.setText(phoneAuthCredential.getSmsCode());
+            signInWithPhoneAuthCredential(phoneAuthCredential);
         }
 
         @Override
@@ -83,12 +85,23 @@ public class PhoneVerificationActivity extends AppCompatActivity {
         }
 
         if (hasSentCodeBefore) {
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 120, TimeUnit.SECONDS, this, phoneVerificationCallBack, resendingToken);
+            PhoneAuthProvider.verifyPhoneNumber(getPhoneAuthOptions(false));
         } else {
             hasSentCodeBefore = true;
             binding.sendOtpBtn.setText(getString(R.string.action_btn_resend_otp));
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 120, TimeUnit.SECONDS, this, phoneVerificationCallBack);
+            PhoneAuthProvider.verifyPhoneNumber(getPhoneAuthOptions(true));
         }
+    }
+
+    private PhoneAuthOptions getPhoneAuthOptions(boolean isResend) {
+        PhoneAuthOptions.Builder builder = PhoneAuthOptions
+                .newBuilder(FirebaseAuth.getInstance())
+                .setActivity(this)
+                .setPhoneNumber(phoneNumber)
+                .setTimeout(60L, TimeUnit.SECONDS)
+                .setCallbacks(phoneVerificationCallBack);
+        if (isResend) builder.setForceResendingToken(resendingToken);
+        return builder.build();
     }
 
     private void onClickedVerify(View view) {

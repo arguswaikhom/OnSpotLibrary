@@ -7,11 +7,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.crown.library.onspotlibrary.R;
 import com.crown.library.onspotlibrary.databinding.LiUnsupportedContentBinding;
 import com.crown.library.onspotlibrary.model.UnSupportedContent;
 import com.crown.library.onspotlibrary.utils.NavUtils;
 import com.crown.library.onspotlibrary.utils.OSMessage;
+import com.crown.library.onspotlibrary.utils.OSString;
 import com.crown.library.onspotlibrary.views.LoadingBounceDialog;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,7 +35,7 @@ public class UnSupportedContentVH extends RecyclerView.ViewHolder {
         }
         binding.contactUsBtn.setOnClickListener(v -> {
             loadingDialog.show();
-            FirebaseFirestore.getInstance().collection(activity.getString(R.string.ref_report)).add(content).addOnSuccessListener(result -> {
+            FirebaseFirestore.getInstance().collection(OSString.refReport).add(content).addOnSuccessListener(result -> {
                 loadingDialog.dismiss();
                 OSMessage.showSToast(activity, "Report submitted");
             }).addOnFailureListener(e -> {

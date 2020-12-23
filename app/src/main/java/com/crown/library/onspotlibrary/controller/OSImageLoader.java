@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.crown.library.onspotlibrary.R;
 import com.crown.library.onspotlibrary.model.businessItem.BusinessItemV0;
+import com.crown.library.onspotlibrary.utils.OSString;
 import com.crown.library.onspotlibrary.utils.OSVolleyCacheUtils;
 import com.crown.library.onspotlibrary.utils.callback.OnFailResponse;
 import com.crown.library.onspotlibrary.utils.callback.OnStringResponse;
@@ -35,7 +36,7 @@ public class OSImageLoader {
 
     public static void getUserProfileImage(Context context, String uid, OnStringResponse success, OnFailResponse failed) {
         OSVolley osVolley = OSVolley.getInstance(context);
-        String cacheKey = context.getString(R.string.pre_field_image) + uid;
+        String cacheKey = OSString.preFieldImage + uid;
         String url = osVolley.getCache(cacheKey);
         if (url != null) {
             success.onResponse(url);
@@ -55,7 +56,7 @@ public class OSImageLoader {
             success.onResponse(imageUrl);
             return;
         }
-        FirebaseStorage.getInstance().getReference().child(context.getString(R.string.sref_item_image)).child(itemV0.getBusinessRefId()).child(itemV0.getItemId()).listAll().addOnSuccessListener(listResult -> {
+        FirebaseStorage.getInstance().getReference().child(OSString.bucketItemImage).child(itemV0.getBusinessRefId()).child(itemV0.getItemId()).listAll().addOnSuccessListener(listResult -> {
             List<StorageReference> referenceList = listResult.getItems();
             if (referenceList.size() > 0) {
                 referenceList.get(0).getDownloadUrl().addOnSuccessListener(result -> {

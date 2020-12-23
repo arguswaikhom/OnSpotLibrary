@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.text.HtmlCompat;
 import androidx.core.widget.ImageViewCompat;
 
 import com.crown.library.onspotlibrary.R;
@@ -57,7 +58,8 @@ public class OSInfoBanner extends FrameLayout {
             binding.moreInfoIv.setOnClickListener(v -> {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 if (!TextUtils.isEmpty(infoTitle)) builder.setTitle(infoTitle);
-                if (!TextUtils.isEmpty(infoMessage)) builder.setMessage(infoMessage);
+                if (!TextUtils.isEmpty(infoMessage))
+                    builder.setMessage(HtmlCompat.fromHtml(infoMessage, HtmlCompat.FROM_HTML_MODE_LEGACY));
                 if (!TextUtils.isEmpty(infoPositiveBtnText)) {
                     builder.setPositiveButton(infoPositiveBtnText, infoPositiveBtnListener);
                 }

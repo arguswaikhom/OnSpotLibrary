@@ -12,8 +12,8 @@ public class OSContactReacher {
     // *os done
     @Deprecated
     public static void getUserMobileNumber(Context context, String uid, OnSuccessResponse success, OnFailResponse failure) {
-        FirebaseFirestore.getInstance().collection(context.getString(R.string.ref_user)).document(uid).get().addOnSuccessListener(doc -> {
-            String phoneNo = (String) doc.get(context.getString(R.string.field_phone_number));
+        FirebaseFirestore.getInstance().collection(OSString.refUser).document(uid).get().addOnSuccessListener(doc -> {
+            String phoneNo = (String) doc.get(OSString.fieldPhoneNumber);
             if (phoneNo != null) success.onSuccess(phoneNo);
             else if (failure != null) failure.onFailed(null, "Contact not found");
         }).addOnFailureListener(e -> {
@@ -22,8 +22,8 @@ public class OSContactReacher {
     }
 
     public static void getUserMobileNumber(Context context, String uid, OnStringResponse success, OnFailResponse failure) {
-        FirebaseFirestore.getInstance().collection(context.getString(R.string.ref_user)).document(uid).get().addOnSuccessListener(doc -> {
-            String phoneNo = (String) doc.get(context.getString(R.string.field_phone_number));
+        FirebaseFirestore.getInstance().collection(OSString.refUser).document(uid).get().addOnSuccessListener(doc -> {
+            String phoneNo = (String) doc.get(OSString.fieldPhoneNumber);
             if (phoneNo != null) success.onResponse(phoneNo);
             else if (failure != null) failure.onFailed(null, "Contact not found");
         }).addOnFailureListener(e -> {
@@ -32,8 +32,8 @@ public class OSContactReacher {
     }
 
     public static void getBusinessMobileNumber(Context context, String bussRefId, OnStringResponse success, OnFailResponse failure) {
-        FirebaseFirestore.getInstance().collection(context.getString(R.string.ref_business)).document(bussRefId).get().addOnSuccessListener(doc -> {
-            String phoneNo = (String) doc.get(context.getString(R.string.field_mobile_number));
+        FirebaseFirestore.getInstance().collection(OSString.refBusiness).document(bussRefId).get().addOnSuccessListener(doc -> {
+            String phoneNo = (String) doc.get(OSString.fieldMobileNumber);
             if (phoneNo != null) success.onResponse(phoneNo);
             else if (failure != null) failure.onFailed(null, "Contact not found");
         }).addOnFailureListener(e -> {

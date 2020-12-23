@@ -11,7 +11,7 @@ public class OSCommonIntents {
 
     public static void onIntentTargetOnSpot(Context context, @NotNull String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        intent.setPackage("com.crown.onspot");
+        intent.setPackage(OSString.packageOS);
 
         try {
             context.startActivity(intent);

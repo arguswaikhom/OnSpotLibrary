@@ -14,11 +14,11 @@ public class OSLaunchUtil {
 
     @SuppressWarnings("unchecked")
     public static void isAvailable(Context context, String postalCode, OnBooleanResponse response, OnFailResponse failResponse) {
-        FirebaseFirestore.getInstance().collection(context.getString(R.string.ref_crown_onspot))
-                .document(context.getString(R.string.doc_launch_region)).get()
+        FirebaseFirestore.getInstance().collection("crown-onspot")
+                .document("launchRegion").get()
                 .addOnSuccessListener(documentSnapshot -> {
                     try {
-                        List<String> postalCodes = (List<String>) documentSnapshot.get(context.getString(R.string.field_postal_code));
+                        List<String> postalCodes = (List<String>) documentSnapshot.get("postalCode");
                         assert postalCodes != null;
                         response.onResponse(postalCodes.contains(postalCode.trim()));
                     } catch (Exception e) {

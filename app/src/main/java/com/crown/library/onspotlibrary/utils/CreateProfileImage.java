@@ -91,8 +91,8 @@ public class CreateProfileImage extends AsyncTask<String, Void, Bitmap> {
     }
 
     private void updateUser(String url) {
-        FirebaseFirestore.getInstance().collection(context.get().getString(R.string.ref_user))
-                .document(userId).update("profileImageUrl", url);
+        FirebaseFirestore.getInstance().collection(OSString.refUser)
+                .document(userId).update(OSString.fieldProfileImageUrl, url);
     }
 
     private File saveImageToInternalStorage(Bitmap bitmap) {

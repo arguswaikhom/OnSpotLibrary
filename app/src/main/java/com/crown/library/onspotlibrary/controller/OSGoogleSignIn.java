@@ -146,8 +146,7 @@ public class OSGoogleSignIn {
         if (mAuth.getUid() == null) mCallback.onFailureGoogleSignIn("Sign in failed", null);
 
         loadingBounce.show();
-        String collection = mActivity.getString(R.string.ref_user);
-        FirebaseFirestore.getInstance().collection(collection).document(mAuth.getUid()).get()
+        FirebaseFirestore.getInstance().collection(OSString.refUser).document(mAuth.getUid()).get()
                 .addOnCompleteListener(doc -> loadingBounce.dismiss())
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists())

@@ -50,7 +50,7 @@ public class OSMapUtils {
     private static void openMap(Activity activity, Uri uri) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            intent.setPackage(activity.getString(R.string.map_package));
+            intent.setPackage(OSString.packageMap);
             activity.startActivity(intent);
         } catch (ActivityNotFoundException e) {
             activity.startActivity(new Intent(Intent.ACTION_VIEW, uri));

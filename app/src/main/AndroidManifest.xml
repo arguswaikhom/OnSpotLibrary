@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="onspotpackage.com"
+                    android:host="onspotshop.com"
                     android:pathPrefix="/product"
                     android:scheme="http" />
             </intent-filter>
@@ -39,7 +39,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="onspotpackage.com"
+                    android:host="onspotshop.com"
                     android:pathPrefix="/business"
                     android:scheme="http" />
             </intent-filter>

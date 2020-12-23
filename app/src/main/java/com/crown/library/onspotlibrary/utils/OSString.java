@@ -7,6 +7,7 @@ public class OSString {
     public static final String fieldCustomer = "customer";
     public static final String fieldDelivery = "delivery";
     public static final String fieldItems = "items";
+    public static final String fieldOrderedAt = "orderedAt";
     public static final String fieldStatusRecord = "statusRecord";
     public static final String fieldIsActiveOrder = "isActiveOrder";
     public static final String fieldIsDeliverableOrder = "isDeliverableOrder";
@@ -64,10 +65,12 @@ public class OSString {
     public static final String keyItemReview = "itemReview";
     public static final String keyDeliveryReview = "deliveryReview";
 
-    // crown-onspot
+    // onspotshop
     public static final String inrSymbol = "₹";
     public static final String filter = "filter";
     public static final String data = "data";
+    public static final String refOnSpotShop = "onspotshop";
+    public static final String docBusinessType = "business-type";
     public static final String initiatorBusiness = "osb";
     public static final String initiatorCustomer = "os";
     public static final String initiatorDelivery = "osd";
@@ -84,6 +87,10 @@ public class OSString {
     // notification
     public static final String refNotification = "notification";
     public static final String fieldType = "type";
+    public static final String fieldAccount = "account";
+
+    // report
+    public static final String refReport = "report";
 
     // prefixes
     public static final String preFieldOs = "os:";
@@ -95,7 +102,7 @@ public class OSString {
     public static final String preFieldImages = "images:";
 
     // apis
-    public static final String apiDomain = "https://us-central1-crown-onspot.cloudfunctions.net";
+    public static final String apiDomain = "https://us-central1-bicrowny-onspotshop.cloudfunctions.net";
     public static final String apiGetUser = apiDomain + "/getUser/";
     public static final String apiExplore = apiDomain + "/explore-getExplore/";
     public static final String apiGetAccountAvailability = apiDomain + "/getAccountAvailability/";
@@ -113,4 +120,23 @@ public class OSString {
 
     // buckets
     public static final String bucketUserProfile = "user-profile";
+    public static final String bucketBusinessProfile = "business-profile";
+    public static final String bucketItemImage = "item-image";
+
+    // in-app links
+    public static final String domain = "http://onspotshop.com";
+    public static final String linkProduct = domain + "/business";
+    public static final String linkBusiness = domain + "/product";
+    public static final String linkOrderOnline = domain + "/order-online";
+
+    // packages
+    public static final String packageOS = "com.crown.onspot";
+    public static final String packageOSD = "com.crown.onspotdelivery";
+    public static final String packageOSB = "com.crown.onspotbusiness";
+    public static final String packageInstagram = "com.instagram.android";
+    public static final String packageMap = "com.google.android.apps.maps";
+
+    // contact
+    public static final String contactInstagram = "onspotapp";
+    public static final String contactGmail = "onspotbusiness@gmail.com";
 }
