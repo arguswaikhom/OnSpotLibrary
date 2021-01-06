@@ -44,10 +44,12 @@ public class PhoneVerificationActivity extends AppCompatActivity {
 
         @Override
         public void onVerificationFailed(@NonNull FirebaseException e) {
+            Log.d(TAG, "" + e);
+            e.printStackTrace();
             if (e instanceof FirebaseAuthInvalidCredentialsException) {
                 OSMessage.showSToast(getApplicationContext(), getString(R.string.msg_invalid_request));
             } else if (e instanceof FirebaseTooManyRequestsException) {
-                OSMessage.showSToast(getApplicationContext(), getString(R.string.msg_server_error));
+                OSMessage.showLToast(getApplicationContext(), e.getLocalizedMessage());
             } else {
                 OSMessage.showSToast(getApplicationContext(), getString(R.string.msg_something_went_wrong));
             }

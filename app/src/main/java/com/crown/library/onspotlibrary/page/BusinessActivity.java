@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +15,7 @@ import com.crown.library.onspotlibrary.model.OSLocation;
 import com.crown.library.onspotlibrary.model.business.BusinessV4;
 import com.crown.library.onspotlibrary.utils.OSCommonIntents;
 import com.crown.library.onspotlibrary.utils.OSConfig;
+import com.crown.library.onspotlibrary.utils.OSInAppUrlUtils;
 import com.crown.library.onspotlibrary.utils.OSMessage;
 import com.crown.library.onspotlibrary.utils.OSRatingUtils;
 import com.crown.library.onspotlibrary.utils.OSString;
@@ -73,6 +73,12 @@ public class BusinessActivity extends AppCompatActivity {
             String url = OSString.linkOrderOnline + "/" + business.getBusinessRefId();
             OSCommonIntents.onIntentTargetOnSpot(this, url);
         });
+
+        binding.shareFab.setOnClickListener(v -> {
+            if (!TextUtils.isEmpty(businessRefId)) {
+                OSCommonIntents.onIntentShareText(this, OSInAppUrlUtils.getBusinessUrl(businessRefId));
+            }
+        });
     }
 
 
@@ -112,8 +118,8 @@ public class BusinessActivity extends AppCompatActivity {
     }
 
     private void urlHandleFailed() {
-        // todo: display "can't handle url" screen
-        OSMessage.showSBar(this, "Can't handle this url!!");
+        binding.mainContent.setVisibility(View.GONE);
+        binding.unsupportedIntent.setVisibility(View.VISIBLE);
     }
 
     private void getBusinessDetails() {
@@ -121,25 +127,28 @@ public class BusinessActivity extends AppCompatActivity {
         FirebaseFirestore.getInstance().collection(OSString.refBusiness).document(businessRefId).get()
                 .addOnSuccessListener(doc -> {
                     loadingDialog.dismiss();
-                    // todo: check for business visibility
+                    if (doc == null || !doc.exists()) {
+                        urlHandleFailed();
+                        return;
+                    }
+
+                    Boolean isVisible = (Boolean) doc.get(OSString.fieldIsVisible);
+                    if (isVisible == null || !isVisible) {
+                        urlHandleFailed();
+                        return;
+                    }
 
                     business = doc.toObject(BusinessV4.class);
-
-                    Log.d("debug", "Business: " + business);
                     displayBusinessDetails();
                 })
                 .addOnFailureListener(e -> {
                     loadingDialog.dismiss();
-                    OSMessage.showSBar(this, getString(R.string.msg_failed_to_load));
+                    urlHandleFailed();
                 });
     }
 
     private void displayBusinessDetails() {
-        if (business == null) {
-            OSMessage.showSBar(this, getString(R.string.msg_failed_to_load));
-            return;
-        }
-
+        if (business == null) return;
         images.clear();
         images.addAll(business.getImageUrls());
         adapter.notifyDataSetChanged();

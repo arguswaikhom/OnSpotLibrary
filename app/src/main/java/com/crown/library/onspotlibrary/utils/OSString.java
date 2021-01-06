@@ -41,6 +41,7 @@ public class OSString {
     public static final String fieldIsActive = "isActive";
     public static final String fieldOwner = "owner";
     public static final String fieldDeviceToken = "deviceToken";
+    public static final String fieldMinOrder = "minOrder";
 
     // business-item
     public static final String refItem = "item";
@@ -76,6 +77,7 @@ public class OSString {
     public static final String initiatorDelivery = "osd";
     public static final String userLocation = "userLocation";
     public static final String refCrownOnspot = "crown-onspot";
+    public static final String fieldIsVisible = "isVisible";
     public static final String fieldTimeStampSecond = "_seconds";
     public static final String fieldTimeStampNanosecond = "_nanoseconds";
 
@@ -125,8 +127,8 @@ public class OSString {
 
     // in-app links
     public static final String domain = "http://onspotshop.com";
-    public static final String linkProduct = domain + "/business";
-    public static final String linkBusiness = domain + "/product";
+    public static final String linkProduct = domain + "/product";
+    public static final String linkBusiness = domain + "/business";
     public static final String linkOrderOnline = domain + "/order-online";
 
     // packages

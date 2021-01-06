@@ -35,6 +35,10 @@ public class OrderItemView extends TableLayout {
         addChild(String.format(Locale.ENGLISH, "x%d", quantity), title, String.format(Locale.ENGLISH, "₹ %d", price));
     }
 
+    public void addChild(String title, int value) {
+        addChild("", title, String.format(Locale.ENGLISH, "₹ %d", value));
+    }
+
     public void clear() {
         this.removeAllViews();
     }

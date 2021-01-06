@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +14,10 @@ import com.crown.library.onspotlibrary.databinding.ActivityProductBinding;
 import com.crown.library.onspotlibrary.model.OSPrice;
 import com.crown.library.onspotlibrary.model.business.BusinessV0;
 import com.crown.library.onspotlibrary.model.businessItem.BusinessItemV4;
+import com.crown.library.onspotlibrary.utils.BusinessItemUtils;
 import com.crown.library.onspotlibrary.utils.OSBusinessItemUnitUtils;
 import com.crown.library.onspotlibrary.utils.OSCommonIntents;
-import com.crown.library.onspotlibrary.utils.OSMessage;
+import com.crown.library.onspotlibrary.utils.OSInAppUrlUtils;
 import com.crown.library.onspotlibrary.utils.OSRatingUtils;
 import com.crown.library.onspotlibrary.utils.OSString;
 import com.crown.library.onspotlibrary.utils.OSUrlUtils;
@@ -62,6 +64,11 @@ public class ProductActivity extends AppCompatActivity {
             String url = OSString.linkBusiness + "/" + business.getBusinessRefId();
             OSCommonIntents.onIntentTargetOnSpot(this, url);
         });
+        binding.shareFab.setOnClickListener(v -> {
+            if (!TextUtils.isEmpty(productId)) {
+                OSCommonIntents.onIntentShareText(this, OSInAppUrlUtils.getProductUrl(productId));
+            }
+        });
     }
 
     private void handleIntent() {
@@ -100,24 +107,29 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void urlHandleFailed() {
-        // todo: display "can't handle url" screen
-        OSMessage.showSBar(this, "Can't handle this url!!");
+        binding.mainContent.setVisibility(View.GONE);
+        binding.unsupportedIntent.setVisibility(View.VISIBLE);
     }
 
     private void getProductDetails() {
         loadingDialog.show();
-        productListener = FirebaseFirestore.getInstance().collection(OSString.refItem).document(productId).addSnapshotListener((value, error) -> {
-            loadingDialog.dismiss();
-            if (value == null) {
+        productListener = FirebaseFirestore.getInstance().collection(OSString.refItem).document(productId)
+                .addSnapshotListener((value, error) -> {
+                    loadingDialog.dismiss();
+                    if (value == null || !value.exists()) {
+                        urlHandleFailed();
+                    } else {
+                        Boolean isVisible = (Boolean) value.get(OSString.fieldIsVisible);
+                        if (isVisible == null || !isVisible) {
+                            urlHandleFailed();
+                            return;
+                        }
 
-            } else if (!value.exists()) {
-
-            } else {
-                product = value.toObject(BusinessItemV4.class);
-                showProduct();
-                getBusinessDetails();
-            }
-        });
+                        product = value.toObject(BusinessItemV4.class);
+                        showProduct();
+                        getBusinessDetails();
+                    }
+                });
     }
 
     private void getBusinessDetails() {
@@ -133,7 +145,6 @@ public class ProductActivity extends AppCompatActivity {
         });
     }
 
-    // todo: check for admin-blocked and inactive product
     private void showProduct() {
         if (product == null) return;
         binding.productName.setText(product.getItemName());
@@ -157,7 +168,7 @@ public class ProductActivity extends AppCompatActivity {
         OSPrice price = product.getPrice();
         BusinessItemPriceUnit unit = price.getUnit() == null ? BusinessItemPriceUnit.item : price.getUnit();
         String quantity = OSBusinessItemUnitUtils.getDisplayText((int) (long) price.getQuantity(), unit);
-        String priceDisplay = "Price: <b>" + OSString.inrSymbol + " " + price.getPrice() + "</b> per <b>" + quantity + "</b>";
+        String priceDisplay = "Price: <b>" + OSString.inrSymbol + " " + BusinessItemUtils.getFinalPrice(price) + "</b> per <b>" + quantity + "</b>";
         binding.priceTv.setText(Html.fromHtml(priceDisplay));
         images.clear();
         images.addAll(product.getImageUrls());
